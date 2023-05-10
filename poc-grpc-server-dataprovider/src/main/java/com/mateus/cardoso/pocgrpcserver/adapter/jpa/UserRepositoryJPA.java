@@ -6,7 +6,6 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +16,6 @@ public interface UserRepositoryJPA extends UserRepository, MongoRepository<User,
 
     @Override
     default User findById(final String id) {
-//        return User.builder().id(new ObjectId(id)).email("tst@user.com").password("admin_admin").build();
         return usersDB.get(id);
     }
 
