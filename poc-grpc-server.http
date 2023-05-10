@@ -1,0 +1,23 @@
+### Find User By ID
+GET http://localhost:8080/users/645bea07a40b3d4448e08ad2
+
+### List All Users
+GET http://localhost:8080/users
+
+### Create User
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+    "email": "abc@abc.abc",
+    "password": "admin"
+}
+
+### GRPC ###
+
+### Find User By Id
+GRPC localhost:9090/com.mateus.cardoso.grpc.lib.UserService/findById
+
+{
+    "id": "645bea07a40b3d4448e08ad2"
+}

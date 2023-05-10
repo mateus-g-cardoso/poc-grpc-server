@@ -1,17 +1,16 @@
 package com.mateus.cardoso.pocgrpcserver;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.mongodb.config.EnableMongoAuditing;
 
-@SpringBootApplication
+@EnableMongoAuditing
+@SpringBootApplication(scanBasePackages = {"com.mateus.cardoso.pocgrpcserver", "com.mateus.cardoso.core.services"})
+@EntityScan(basePackages = "com.mateus.cardoso.core.domain")
 public class PocGrpcServerApplication {
 
     public static void main(String[] args) {
-//        new SpringApplicationBuilder(PocGrpcServerApplication.class)
-//            .web(WebApplicationType.SERVLET)
-//            .run(args);
         SpringApplication.run(PocGrpcServerApplication.class, args);
     }
 

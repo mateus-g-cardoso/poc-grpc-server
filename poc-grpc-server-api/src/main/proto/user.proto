@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package com.mateus.cardoso.grpc.lib;
+
+option java_multiple_files = true;
+option java_package = "com.mateus.cardoso.grpc.lib";
+
+message UserCreateGrpc {
+  string email = 2;
+  string password = 3;
+}
+
+message UserResponseGrpc {
+  string id = 1;
+  string email = 2;
+  string password = 3;
+}
+
+message ListUserResponseGrpc {
+  repeated UserResponseGrpc users = 1;
+}
+
+message Id {
+  string id = 1;
+}
+
+service UserService {
+  rpc findById(Id) returns (UserResponseGrpc) {
+  }
+
+  rpc listAll(google.protobuf.Empty) returns (ListUserResponseGrpc) {
+  }
+
+  rpc create(UserCreateGrpc) returns (UserResponseGrpc) {
+  }
+}
